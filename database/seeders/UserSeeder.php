@@ -11,7 +11,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         collect(range(1, 2))->each(function ($id) {
-            User::factory()->create(['email' => "admin_{$id}@example.com"])->assignRole(Role::ROLE_ADMIN);
+            User::factory()->create(['email' => "admin_{$id}@example.com", 'verify_account' => 1])->assignRole(Role::ROLE_ADMIN);
         });
 
         collect(range(1, 4))->each(function ($id) {
