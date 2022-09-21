@@ -39,4 +39,10 @@ class User extends Authenticatable
     {
         return $this->hasRole(Role::ROLE_EMPLOYEE);
     }
+
+    // relationships
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+    }
 }

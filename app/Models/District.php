@@ -15,4 +15,9 @@ class District extends Model
     {
         return $this->belongsTo(Province::class);
     }
+
+    public function jobs()
+    {
+        return $this->belongsTo(Job::class);
+    }
 }

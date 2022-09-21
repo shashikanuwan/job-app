@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             SubCategorySeeder::class,
             WorkLocationSeeder::class,
             EmploymentTypeSeeder::class,
+            JobSeeder::class,
         ]);
     }
 }
