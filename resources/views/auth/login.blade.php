@@ -51,6 +51,12 @@
                     {{ __('Log in') }}
                 </x-primary-button>
             </div>
+
+            <div>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                    {{ __('Or register') }}
+                </a>
+            </div>
         </form>
     </x-auth-card>
 </x-guest-layout>
