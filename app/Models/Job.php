@@ -12,6 +12,10 @@ class Job extends Model
     use HasFactory;
     use HasSlug;
 
+    protected $dates = [
+        'expiry_date',
+    ];
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()

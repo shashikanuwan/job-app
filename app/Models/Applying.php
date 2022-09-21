@@ -9,6 +9,10 @@ class Applying extends Model
 {
     use HasFactory;
 
+    protected $dates = [
+        'accepted_at',
+    ];
+
     // relationships
     public function employee()
     {

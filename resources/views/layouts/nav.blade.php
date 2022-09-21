@@ -21,11 +21,9 @@
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <div class="text-center space-x-8 sm:-my-px sm:ml-10 sm:flex mr-3">
-                    <div class="relative inline-flex">
-                        <a href="" class="border border-gray-300 rounded-full text-gray-600 pt-1 pb-1 h-8 pl-8 pr-8  bg-yellow-200 hover:border-gray-400 focus:outline-none appearance-none">
-                            {{__('All Job')}}
-                        </a>
-                    </div>
+                    <x-nav-link-2 :href="route('search.job')" :active="request()->routeIs('search.job')">
+                        {{ __('All Job') }}
+                    </x-nav-link>
                 </div>
 
                 @if (Route::has('login'))
