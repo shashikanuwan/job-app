@@ -19,6 +19,11 @@ class District extends Model
             ->saveSlugsTo('slug');
     }
 
+    public function getRouteKeyName()
+    {
+        return $this->slug;
+    }
+
     protected $guarded = [];
 
     public function province()

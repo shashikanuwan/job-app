@@ -16,7 +16,7 @@ class JobSearchController extends Controller
                 $subCategoryId = $request->get('subCategory');
 
                 $query->whereHas('subCategory', function (Builder $query) use ($subCategoryId) {
-                    $query->where('id', $subCategoryId);
+                    $query->where('slug', $subCategoryId);
                 });
             })
 
@@ -24,7 +24,7 @@ class JobSearchController extends Controller
                 $employmentTypeId = $request->get('employmentType');
 
                 $query->whereHas('employmentType', function (Builder $query) use ($employmentTypeId) {
-                    $query->where('id', $employmentTypeId);
+                    $query->where('slug', $employmentTypeId);
                 });
             })
 
@@ -32,7 +32,7 @@ class JobSearchController extends Controller
                 $workLocationId = $request->get('work_location');
 
                 $query->whereHas('workLocation', function (Builder $query) use ($workLocationId) {
-                    $query->where('id', $workLocationId);
+                    $query->where('slug', $workLocationId);
                 });
             })
 
@@ -40,7 +40,7 @@ class JobSearchController extends Controller
                 $districtId = $request->get('district');
 
                 $query->whereHas('district', function (Builder $query) use ($districtId) {
-                    $query->where('id', $districtId);
+                    $query->where('slug', $districtId);
                 });
             })
 
