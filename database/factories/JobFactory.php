@@ -18,7 +18,7 @@ class JobFactory extends Factory
         $expiry_date = Carbon::parse($this->faker->dateTimeBetween('+1 day', '+2 months'));
 
         return [
-            'job_title' =>  $this->faker->paragraph,
+            'title' =>  $this->faker->paragraph,
             'description' =>  $this->faker->text,
             'expiry_date' =>  $expiry_date,
             'minimum_salary' =>  $this->faker->randomFloat(2, 35000, 50000),
