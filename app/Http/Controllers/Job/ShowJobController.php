@@ -10,8 +10,6 @@ class ShowJobController extends Controller
     public function __invoke(Job $job)
     {
         return view('Pages.Job.show')
-            ->with([
-                'job' => $job
-            ]);
+            ->with(['job' => $job]);
     }
 }

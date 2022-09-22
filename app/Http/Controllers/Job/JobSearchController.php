@@ -3,14 +3,26 @@
 namespace App\Http\Controllers\Job;
 
 use App\Http\Controllers\Controller;
+use App\Models\Applying;
 use App\Models\Job;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobSearchController extends Controller
 {
     public function __invoke(Request $request)
     {
+        $ApplyingIds = null;
+        if (Auth::check()) {
+            $ApplyingIds = Applying::query()
+                ->select('job_id')
+                ->where('user_id', $request->user()->id)
+                ->get()
+                ->pluck('job_id')
+                ->all();
+        }
+
         $jobs = Job::query()
             ->with('subCategory.category', 'employer')
             ->when($request->filled('subCategory'), function ($query) use ($request) {
@@ -44,7 +56,9 @@ class JobSearchController extends Controller
                     $query->where('slug', $districtId);
                 });
             })
-
+            ->when($ApplyingIds != null, function (Builder $query) use ($ApplyingIds) {
+                $query->whereNotIn('id', $ApplyingIds);
+            })
             ->paginate(12);
 
         return view('Pages.Job.index')

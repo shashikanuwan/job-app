@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\CvController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Employee\EmployeeDashboardController;
 use App\Http\Controllers\Employer\EmployerDashboardController;
+use App\Http\Controllers\Employer\EmployerJobController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Job\JobApplyController;
 use App\Http\Controllers\Job\JobSearchController;
@@ -25,6 +27,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('job-apply', JobApplyController::class)
         ->name('job.apply');
+
+    Route::get('cv-show/{applying}', CvController::class)
+        ->name('cv.show');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -35,6 +40,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::middleware(['auth', 'role:employer'])->group(function () {
     Route::get('/employer/dashboard', EmployerDashboardController::class)
         ->name('employer.dashboard');
+
+    Route::get('/employer/job', EmployerJobController::class)
+        ->name('employer.job');
 });
 
 Route::middleware(['auth', 'role:employee'])->group(function () {

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,5 +30,13 @@ class Applying extends Model
     public function job()
     {
         return $this->belongsTo(Job::class);
+    }
+
+    //scope
+    public function scopeOfEmployer(Builder $query, User $employer)
+    {
+        $query->whereHas('job', function (Builder $query) use ($employer) {
+            $query->where('user_id', $employer->id);
+        });
     }
 }

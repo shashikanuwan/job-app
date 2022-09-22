@@ -95,7 +95,7 @@ class Job extends Model
     {
         if ($file != null) {
             $filename = $applying->id . '.' . $file->getClientOriginalExtension();
-            Storage::disk('local')->put('applying/' . $filename, file_get_contents(request()->file('cv')->getRealPath()), 'public');
+            Storage::disk('local')->put('public/applying/' . $filename, file_get_contents(request()->file('cv')->getRealPath()), 'public');
             $applying->cv = $filename;
             $applying->save();
         }

@@ -2,6 +2,7 @@
 
     <x-dashboard-header />
     <x-employer-navigation />
-    <x-fetch-employee-applying />
+
+    <x-employer-job-card />
 
 </x-app-layout>
