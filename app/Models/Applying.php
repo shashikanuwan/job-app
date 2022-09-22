@@ -25,4 +25,9 @@ class Applying extends Model
     {
         return $this->belongsTo(Province::class);
     }
+
+    public function job()
+    {
+        return $this->belongsTo(Job::class);
+    }
 }
