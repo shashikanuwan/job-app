@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Job;
 
+use App\Http\Controllers\Controller;
 use App\Models\Job;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;

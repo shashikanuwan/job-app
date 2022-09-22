@@ -12,6 +12,8 @@ class SubCategory extends Model
     use HasFactory;
     use HasSlug;
 
+    protected $guarded = [];
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
@@ -23,8 +25,6 @@ class SubCategory extends Model
     {
         return $this->slug;
     }
-
-    protected $guarded = [];
 
     public function category()
     {

@@ -2,7 +2,7 @@
     <div class="relative z-10 w-full mt-20 lg:mt-0">
         <div class="relative z-10 flex flex-col items-start justify-start p-10 bg-white shadow-2xl rounded-xl">
             <h4 class="w-full text-4xl font-medium leading-snug">Search Form</h4>
-            <form action="{{ route('search.job') }}" method="GET" class="relative w-full mt-6 space-y-8">
+            <form action="{{ route('job.search') }}" method="GET" class="relative w-full mt-6 space-y-8">
                 <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 mt-4">
                     <div>
                         <x-input-label for="">Category</x-label>

@@ -18,6 +18,8 @@
             {{-- @include('layouts.navigation') --}}
             @include('layouts.nav')
 
+            <x-alart class="mt-4" />
+
             <!-- Page Content -->
             <main>
                 {{ $slot }}

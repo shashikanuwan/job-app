@@ -19,16 +19,12 @@
                     <p class="text-md text-center">{{ $job->expiry_date->toDayDateTimeString() }}</p>
                 </div>
 
-                @unlessrole('admin|employer')
-                    <form action="" method="POST">
-                        @csrf
-                        <input type="hidden" name="program_id" value="{{ $job }}">
-                        <span class="flex item-center justify-center mt-4">
-                            <button type="submit"
-                                class="font-semibold text-gray-800 w-full bg-yellow-400 hover:bg-yellow-500 py-1 rounded">Apply</button>
-                        </span>
-                    </form>
-                @endunlessrole
+                <div class="flex justify-center mt-4">
+                    <a href="{{ route('job.show', $job->getRouteKeyName()) }}"
+                        class="text-center font-semibold text-gray-800 w-full bg-yellow-400 hover:bg-yellow-500 py-1 rounded">
+                        Show More
+                    </a>
+                </div>
             </div>
         </div>
     @empty

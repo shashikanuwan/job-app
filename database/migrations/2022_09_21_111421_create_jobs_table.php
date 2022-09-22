@@ -14,8 +14,8 @@ return new class extends Migration
             $table->string('slug');
             $table->text('description');
             $table->date('expiry_date');
-            $table->float('minimum_salary');
-            $table->float('maximum_salary');
+            $table->integer('minimum_salary');
+            $table->integer('maximum_salary');
             $table->foreignId('sub_category_id')->constrained()->onDelete('cascade');
             $table->foreignId('employment_type_id')->constrained()->onDelete('cascade');
             $table->foreignId('work_location_id')->constrained()->onDelete('cascade');

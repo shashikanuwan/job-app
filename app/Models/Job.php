@@ -16,11 +16,18 @@ class Job extends Model
         'expiry_date',
     ];
 
+    protected $guarded = [];
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
+    }
+
+    public function getRouteKeyName()
+    {
+        return $this->slug;
     }
 
     // relationships
@@ -47,5 +54,10 @@ class Job extends Model
     public function employmentType()
     {
         return $this->belongsTo(EmploymentType::class);
+    }
+
+    public function applying()
+    {
+        return $this->hasMany(Applying::class);
     }
 }

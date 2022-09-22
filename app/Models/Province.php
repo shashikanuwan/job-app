@@ -12,12 +12,12 @@ class Province extends Model
     use HasFactory;
     use HasSlug;
 
+    protected $guarded = [];
+    
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
     }
-
-    protected $guarded = [];
 }

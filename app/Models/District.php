@@ -12,6 +12,8 @@ class District extends Model
     use HasFactory;
     use HasSlug;
 
+    protected $guarded = [];
+    
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
@@ -23,8 +25,6 @@ class District extends Model
     {
         return $this->slug;
     }
-
-    protected $guarded = [];
 
     public function province()
     {

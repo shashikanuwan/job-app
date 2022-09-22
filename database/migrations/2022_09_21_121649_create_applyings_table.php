@@ -10,6 +10,8 @@ return new class extends Migration
     {
         Schema::create('applyings', function (Blueprint $table) {
             $table->id();
+            $table->string('working_status')->default('No');
+            $table->string('cv')->nullable();
             $table->dateTime('accepted_at')->nullable();
             $table->foreignId('job_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
@@ -17,11 +19,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('applyings');

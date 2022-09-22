@@ -13,6 +13,8 @@ class Applying extends Model
         'accepted_at',
     ];
 
+    protected $guarded = [];
+
     // relationships
     public function employee()
     {
