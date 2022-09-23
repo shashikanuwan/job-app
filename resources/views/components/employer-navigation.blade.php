@@ -9,11 +9,11 @@
                                 {{ __('Dashboard') }}
                             </x-nav-link>
 
-                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('employer.dashboard')">
-                                {{ __('Post Job') }}
+                            <x-nav-link :href="route('jobs.create')" :active="request()->routeIs('jobs.create')">
+                                {{ __('Create Job') }}
                             </x-nav-link>
 
-                            <x-nav-link :href="route('employer.job')" :active="request()->routeIs('employer.job')">
+                            <x-nav-link :href="route('jobs.index')" :active="request()->routeIs('jobs.index')">
                                 {{ __('All Job') }}
                             </x-nav-link>
 

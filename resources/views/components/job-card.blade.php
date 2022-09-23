@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="flex justify-center mt-4">
-                    <a href="{{ route('job.show', $job->getRouteKeyName()) }}"
+                    <a href="{{ route('job.show', $job->slug) }}"
                         class="text-center font-semibold text-gray-800 w-full bg-yellow-400 hover:bg-yellow-500 py-1 rounded">
                         Show More
                     </a>

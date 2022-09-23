@@ -2,7 +2,7 @@
     <div class="flex flex-col justify-center h-full">
         <div class="w-full max-w-5xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
             <header class="px-5 py-4 border-b border-gray-200">
-                <h2 class="font-semibold text-gray-800">Job Request</h2>
+                <h2 class="font-semibold text-gray-800">Previous Job Request</h2>
             </header>
 
             <div>
@@ -16,7 +16,7 @@
             <div class="p-3">
                 <div class="overflow-x-auto">
                     <table class="table-auto w-full">
-                        <thead class="text-xs font-semibold bg-gray-50">
+                        <thead class="text-xs font-semibold text-orange-400 bg-gray-500">
                             <tr>
                                 <th class="p-2 whitespace-nowrap">
                                     <div class="font-semibold">Applied At</div>

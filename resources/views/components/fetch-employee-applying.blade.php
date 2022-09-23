@@ -16,7 +16,7 @@
             <div class="p-3">
                 <div class="overflow-x-auto">
                     <table class="table-auto w-full">
-                        <thead class="text-xs font-semibold bg-gray-50">
+                        <thead class="text-xs font-semibold text-orange-400 bg-gray-500">
                             <tr>
                                 <th class="p-2 whitespace-nowrap">
                                     <div class="font-semibold">Applied At</div>

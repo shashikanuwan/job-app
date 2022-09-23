@@ -28,11 +28,6 @@ class Job extends Model
             ->saveSlugsTo('slug');
     }
 
-    public function getRouteKeyName()
-    {
-        return $this->slug;
-    }
-
     // relationships
     public function employer()
     {

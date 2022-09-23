@@ -7,20 +7,33 @@
                     <p class="text-lg font-thin text-center"> {{ $applying->job->subCategory->name }}</p>
                 </div>
 
-                <p class="text-sm font-semibold text-gray-500">{{ $applying->job->subCategory->category->name }}</p>
+                <div class="mt-2">
+                    <span class="text-sm text-sky-600">Job Title : </span>
+                    <span class="text-md text-center">{{ $applying->job->title }}</span>
+                </div>
+
+                <div class="mt-2">
+                    <span class="text-sm text-sky-600">Main Category : </span>
+                    <span class="text-md text-center">{{ $applying->job->subCategory->category->name }}</span>
+                </div>
 
                 <div class="mt-2">
                     <span class="text-sm text-sky-600">Company : </span>
-                    <p class="text-md">{{ $applying->job->employer->name }}</p>
+                    <span class="text-md text-center">{{ $applying->job->employer->name }}</span>
+                </div>
+
+                <div class="mt-2">
+                    <span class="text-sm text-sky-600">Job Request Status :</span>
+                    <span class="text-md text-center">{{ $applying->status }}</span>
                 </div>
 
                 <div class="mt-2">
                     <span class="text-sm text-sky-600">Expiry Date :</span>
-                    <p class="text-md text-center">{{ $applying->job->expiry_date->toDayDateTimeString() }}</p>
+                    <span class="text-md text-center">{{ $applying->job->expiry_date->format('Y-m-d') }}</span>
                 </div>
 
                 <div class="flex justify-center mt-4">
-                    <a href="{{ route('job.show', $applying->job->getRouteKeyName()) }}"
+                    <a href="{{ route('job.show', $applying->job->slug) }}"
                         class="text-center font-semibold text-gray-800 w-full bg-yellow-400 hover:bg-yellow-500 py-1 rounded">
                         Show Job
                     </a>

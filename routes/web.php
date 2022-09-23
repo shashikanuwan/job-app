@@ -43,8 +43,7 @@ Route::middleware(['auth', 'role:employer'])->prefix('employer')->group(function
     Route::get('dashboard', EmployerDashboardController::class)
         ->name('employer.dashboard');
 
-    Route::get('job', EmployerJobController::class)
-        ->name('employer.job');
+    Route::resource('jobs', EmployerJobController::class);
 
     Route::post('status/{applying}', ActionController::class)
         ->name('status.update');

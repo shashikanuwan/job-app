@@ -15,6 +15,7 @@ class EmployerJobCard extends Component
         return $this->jobs = Job::query()
             ->where('user_id', Auth::user()->id)
             ->with('subCategory.category', 'employer')
+            ->orderBy('id', 'desc')
             ->get();
     }
 

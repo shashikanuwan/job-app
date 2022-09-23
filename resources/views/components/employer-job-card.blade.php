@@ -20,7 +20,23 @@
                 </div>
 
                 <div class="flex justify-center mt-4">
-                    <a href="{{ route('job.show', $job->getRouteKeyName()) }}"
+                    <a href="{{ route('jobs.edit', $job->id) }}"
+                        class="m-2 text-center font-semibold text-gray-800 bg-blue-400 hover:bg-blue-500 py-2 px-3 rounded">
+                        Edit
+                    </a>
+
+                    <form action="{{ route('jobs.destroy', $job->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"
+                            class="m-2 text-center font-semibold text-gray-800 bg-red-400 hover:bg-red-500 py-2 px-3 rounded">
+                            Delete
+                        </button>
+                    </form>
+                </div>
+
+                <div class="flex justify-center mt-4">
+                    <a href="{{ route('job.show', $job->slug) }}"
                         class="text-center font-semibold text-gray-800 w-full bg-yellow-400 hover:bg-yellow-500 py-1 rounded">
                         Show More
                     </a>
