@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\JobRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
@@ -84,6 +85,8 @@ class Job extends Model
         $applying->save();
 
         $this->storeFile($applying, $cv);
+
+        $applying->job->employer->notify(new JobRequest($applying));
     }
 
     private function storeFile(Applying $applying, UploadedFile $file = null)
