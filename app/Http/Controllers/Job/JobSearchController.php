@@ -59,6 +59,7 @@ class JobSearchController extends Controller
             ->when($ApplyingIds != null, function (Builder $query) use ($ApplyingIds) {
                 $query->whereNotIn('id', $ApplyingIds);
             })
+            ->orderBy('id', 'desc')
             ->paginate(12);
 
         return view('Pages.Job.index')

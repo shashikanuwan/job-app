@@ -44,7 +44,7 @@
         <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6 w-full shadow"
             role="alert">
             <strong class="font-bold">oops!</strong>
-            <span class="block sm:inline">No Applying yet. Please apply!</span>
+            <span class="block sm:inline">No Applying yet.</span> <a href="{{route('job.search')}}" class="underline"> Please apply! </a>
         </div>
     @endforelse
 </div>
