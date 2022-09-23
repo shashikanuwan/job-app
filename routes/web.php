@@ -7,6 +7,7 @@ use App\Http\Controllers\Employee\EmployeeDashboardController;
 use App\Http\Controllers\Employer\ActionController;
 use App\Http\Controllers\Employer\EmployerDashboardController;
 use App\Http\Controllers\Employer\EmployerJobController;
+use App\Http\Controllers\Employer\PreviousJobRequestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Job\JobApplyController;
 use App\Http\Controllers\Job\JobSearchController;
@@ -23,7 +24,7 @@ Route::get('job/{job:slug}', ShowJobController::class)
     ->name('job.show');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', DashboardController::class)
+    Route::get('dashboard', DashboardController::class)
         ->name('dashboard');
 
     Route::post('job-apply', JobApplyController::class)
@@ -34,23 +35,26 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin/dashboard', AdminDashboardController::class)
+    Route::get('admin/dashboard', AdminDashboardController::class)
         ->name('admin.dashboard');
 });
 
-Route::middleware(['auth', 'role:employer'])->group(function () {
-    Route::get('/employer/dashboard', EmployerDashboardController::class)
+Route::middleware(['auth', 'role:employer'])->prefix('employer')->group(function () {
+    Route::get('dashboard', EmployerDashboardController::class)
         ->name('employer.dashboard');
 
-    Route::get('/employer/job', EmployerJobController::class)
+    Route::get('job', EmployerJobController::class)
         ->name('employer.job');
 
     Route::post('status/{applying}', ActionController::class)
         ->name('status.update');
+
+    Route::get('previous-job-request', PreviousJobRequestController::class)
+        ->name('previous.job.request');
 });
 
 Route::middleware(['auth', 'role:employee'])->group(function () {
-    Route::get('/employee/dashboard', EmployeeDashboardController::class)
+    Route::get('employee/dashboard', EmployeeDashboardController::class)
         ->name('employee.dashboard');
 });
 

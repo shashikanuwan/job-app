@@ -16,6 +16,10 @@
                             <x-nav-link :href="route('employer.job')" :active="request()->routeIs('employer.job')">
                                 {{ __('All Job') }}
                             </x-nav-link>
+
+                            <x-nav-link :href="route('previous.job.request')" :active="request()->routeIs('previous.job.request')">
+                                {{ __('Previous job request') }}
+                            </x-nav-link>
                         </div>
                     </div>
                 </div>

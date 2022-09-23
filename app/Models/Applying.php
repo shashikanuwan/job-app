@@ -47,7 +47,12 @@ class Applying extends Model
 
     public function scopePending(Builder $query)
     {
-        $query->whereNull('accepted_at');
+        $query->where('status', $this::PENDING);
+    }
+
+    public function scopePrevious(Builder $query)
+    {
+        $query->whereNot('status', $this::PENDING);
     }
 
     // actions
