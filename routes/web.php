@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\CvController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Employee\EmployeeDashboardController;
+use App\Http\Controllers\Employer\ActionController;
 use App\Http\Controllers\Employer\EmployerDashboardController;
 use App\Http\Controllers\Employer\EmployerJobController;
 use App\Http\Controllers\HomeController;
@@ -43,6 +44,9 @@ Route::middleware(['auth', 'role:employer'])->group(function () {
 
     Route::get('/employer/job', EmployerJobController::class)
         ->name('employer.job');
+
+    Route::post('status/{applying}', ActionController::class)
+        ->name('status.update');
 });
 
 Route::middleware(['auth', 'role:employee'])->group(function () {

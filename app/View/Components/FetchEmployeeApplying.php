@@ -14,6 +14,7 @@ class FetchEmployeeApplying extends Component
     public function __construct()
     {
         return $this->applyings = Applying::query()
+            ->pending()
             ->ofEmployer(Auth::user())
             ->with('job.subCategory.category', 'job.employer')
             ->orderBy('id', 'asc')

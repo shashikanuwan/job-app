@@ -10,6 +10,11 @@ class Applying extends Model
 {
     use HasFactory;
 
+    public const PENDING = 'pending';
+    public const ACCEPTED = 'accepted';
+    public const HOLD = 'hold';
+    public const REJECT = 'reject';
+
     protected $dates = [
         'accepted_at',
     ];
@@ -38,5 +43,18 @@ class Applying extends Model
         $query->whereHas('job', function (Builder $query) use ($employer) {
             $query->where('user_id', $employer->id);
         });
+    }
+
+    public function scopePending(Builder $query)
+    {
+        $query->whereNull('accepted_at');
+    }
+
+    // actions
+    public function status($status)
+    {
+        $this->status = $status;
+        $this->accepted_at = now();
+        $this->save();
     }
 }
