@@ -4,10 +4,10 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\CvController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Employee\EmployeeDashboardController;
-use App\Http\Controllers\Employer\ActionController;
 use App\Http\Controllers\Employer\EmployerDashboardController;
 use App\Http\Controllers\Employer\EmployerJobController;
 use App\Http\Controllers\Employer\PreviousJobRequestController;
+use App\Http\Controllers\Employer\StatusController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Job\JobApplyController;
 use App\Http\Controllers\Job\JobSearchController;
@@ -45,7 +45,7 @@ Route::middleware(['auth', 'role:employer'])->prefix('employer')->group(function
 
     Route::resource('jobs', EmployerJobController::class);
 
-    Route::post('status/{applying}', ActionController::class)
+    Route::post('status/{applying}', StatusController::class)
         ->name('status.update');
 
     Route::get('previous-job-request', PreviousJobRequestController::class)

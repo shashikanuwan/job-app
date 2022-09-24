@@ -7,7 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class JobRequest extends Notification
+class JobStatus extends Notification
 {
     use Queueable;
 
@@ -26,9 +26,13 @@ class JobRequest extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('You have received a job request from' . ' ' .
-                $this->applying->employee->name)
-            ->action('Go to the dashboard', url('/employer/dashboard'))
+            ->line(
+                'The application you applied to' . ' ' .
+                    $this->applying->job->employer->name . ' ' .
+                    'company was' . ' ' .
+                    $this->applying->status
+            )
+            ->action('Go to the dashboard', url('/employee/dashboard'))
             ->line('Thanks for using example.lk');
     }
 
