@@ -24,7 +24,12 @@
 
                 <div class="mt-2">
                     <span class="text-sm text-sky-600">Job Request Status :</span>
-                    <span class="text-md text-center">{{ $applying->status }}</span>
+                    <span class="text-md text-center">
+                        {{ $applying->status }}
+                        @if ($applying->accepted_at)
+                          on  {{ $applying->accepted_at->format('Y-m-d') }}
+                        @endif
+                    </span>
                 </div>
 
                 <div class="mt-2">
