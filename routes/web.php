@@ -40,12 +40,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('employee-detail-store', [AdditionalDetailController::class, 'employeeDetailStore'])
         ->name('employee.detail.store');
-
-    Route::post('job-apply', JobApplyController::class)
-        ->name('job.apply');
-
-    Route::get('cv-show/{applying}', CvController::class)
-        ->name('cv.show');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -59,6 +53,9 @@ Route::middleware(['auth', 'role:employer', 'additional_detail', 'account_verifi
 
     Route::resource('jobs', EmployerJobController::class);
 
+    Route::get('cv-show/{applying}', CvController::class)
+        ->name('cv.show');
+
     Route::post('status/{applying}', StatusController::class)
         ->name('status.update');
 
@@ -69,6 +66,9 @@ Route::middleware(['auth', 'role:employer', 'additional_detail', 'account_verifi
 Route::middleware(['auth', 'role:employee', 'additional_detail', 'account_verified'])->prefix('employee')->group(function () {
     Route::get('dashboard', EmployeeDashboardController::class)
         ->name('employee.dashboard');
+
+    Route::post('job-apply', JobApplyController::class)
+        ->name('job.apply');
 });
 
 require __DIR__ . '/auth.php';

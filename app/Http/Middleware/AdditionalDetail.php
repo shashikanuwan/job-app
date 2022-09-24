@@ -25,8 +25,8 @@ class AdditionalDetail
                     ? abort(403, 'Add additional details')
                     : Redirect::guest(URL::route($redirectToRoute ?: 'additional.detail.index'));
             }
-        } else {
-            return $next($request);
         }
+
+        return $next($request);
     }
 }

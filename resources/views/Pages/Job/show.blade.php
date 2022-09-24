@@ -103,10 +103,6 @@
                     <div class="flex flex-col justify-start items-start flex-shrink-0">
                         <div class="flex justify-center w-full md:justify-start items-center space-x-4 py-8 border-gray-200">
                             <div class="flex justify-start items-start flex-col space-y-2">
-                                <p class="text-base dark:text-white font-semibold leading-4 text-left text-gray-800">
-                                    {{ $job->employer->name }}
-                                </p>
-
                                 <p class="text-sm dark:text-gray-300 leading-5 text-gray-600">
                                     {{ $job->employer->company_name }}</p>
                             </div>

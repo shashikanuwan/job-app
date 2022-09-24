@@ -19,7 +19,7 @@
 
                 <div class="mt-2">
                     <span class="text-sm text-sky-600">Company : </span>
-                    <span class="text-md text-center">{{ $applying->job->employer->name }}</span>
+                    <span class="text-md text-center">{{ $applying->job->employer->company_name }}</span>
                 </div>
 
                 <div class="mt-2">
