@@ -28,7 +28,7 @@ class JobStatus extends Notification
         return (new MailMessage)
             ->line(
                 'The application you applied to' . ' ' .
-                    $this->applying->job->employer->name . ' ' .
+                    $this->applying->job->employer->company_name . ' ' .
                     'company was' . ' ' .
                     $this->applying->status
             )
