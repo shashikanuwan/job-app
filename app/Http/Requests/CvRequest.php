@@ -8,7 +8,7 @@ class CvRequest extends FormRequest
 {
     public function authorize()
     {
-        return true;
+        return $this->user()->can('download', $this->route('applying'));
     }
 
     public function rules()

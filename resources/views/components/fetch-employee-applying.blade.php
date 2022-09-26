@@ -27,7 +27,7 @@
                                 </th>
 
                                 <th class="p-2 whitespace-nowrap">
-                                    <div class="font-semibold">View CV</div>
+                                    <div class="font-semibold">Download CV</div>
                                 </th>
 
                                 <th class="p-2 whitespace-nowrap">
@@ -50,13 +50,13 @@
                                     <div class="">
                                         <div class="font-medium">Full Name : {{$applying->employee->name}}</div>
                                         <div class="font-medium">Phone Number : {{$applying->employee->phone_number}}</div>
-                                        <div class="font-medium">Email : {{$applying->employee->phone_number}}</div>
+                                        <div class="font-medium">Email : {{$applying->employee->email}}</div>
                                         <div class="font-medium">Current working status : {{$applying->working_status}}</div>
                                     </div>
                                 </td>
 
                                <td class="p-2 whitespace-nowrap">
-                                    <a href="{{route('cv.show', $applying)}}" class="font-medium text-lime-600">View</a>
+                                    <a href="{{route('cv.download', $applying)}}" class="font-medium text-lime-600">Download</a>
                                 </td>
 
                                 <td class="p-2 whitespace-nowrap">

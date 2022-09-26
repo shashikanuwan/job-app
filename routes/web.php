@@ -53,8 +53,8 @@ Route::middleware(['auth', 'role:employer', 'additional_detail', 'account_verifi
 
     Route::resource('jobs', EmployerJobController::class);
 
-    Route::get('cv-show/{applying}', CvController::class)
-        ->name('cv.show');
+    Route::get('cv-download/{applying}', CvController::class)
+        ->name('cv.download');
 
     Route::post('status/{applying}', StatusController::class)
         ->name('status.update');

@@ -15,6 +15,11 @@ class ApplyingPolicy
         return $this->applyingManage($user, $applying);
     }
 
+    public function download(User $user, Applying $applying)
+    {
+        return $this->applyingManage($user, $applying);
+    }
+
     private function applyingManage(User $user, Applying $applying)
     {
         return $applying->job->user_id == $user->id;
