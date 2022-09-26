@@ -10,8 +10,8 @@
                                 class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                 <option value="">Select Category</option>
                                 @foreach ($subCategories as $subCategory)
-                                    <option value="{{ $subCategory->getRouteKeyName() }}"
-                                        @if ($subCategory->getRouteKeyName() == $selectedCategoryId) selected @endif>
+                                    <option value="{{ $subCategory->slug }}"
+                                        @if ($subCategory->slug == $selectedCategoryId) selected @endif>
                                         {{ $subCategory->name }}</option>
                                 @endforeach
                             </select>
@@ -23,8 +23,8 @@
                                 class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                 <option value="">Select Employment Type</option>
                                 @foreach ($employmentTypes as $employmentType)
-                                    <option value="{{ $employmentType->getRouteKeyName() }}"
-                                        @if ($employmentType->getRouteKeyName() == $selectedEmploymentTypeId) selected @endif>{{ $employmentType->name }}
+                                    <option value="{{ $employmentType->slug }}"
+                                        @if ($employmentType->slug == $selectedEmploymentTypeId) selected @endif>{{ $employmentType->name }}
                                     </option>
                                 @endforeach
                             </select>
@@ -36,7 +36,7 @@
                                 class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                 <option value="">Work Location</option>
                                 @foreach ($workLocations as $workLocation)
-                                    <option value="{{ $workLocation->getRouteKeyName() }}" @if ($workLocation->getRouteKeyName() == $selectedWorkLocationId) selected @endif>{{ $workLocation->name }}
+                                    <option value="{{ $workLocation->slug }}" @if ($workLocation->slug == $selectedWorkLocationId) selected @endif>{{ $workLocation->name }}
                                     </option>
                                 @endforeach
                             </select>
@@ -48,7 +48,7 @@
                                 class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                 <option value="">Select District</option>
                                 @foreach ($districts as $district)
-                                    <option value="{{ $district->getRouteKeyName() }}" @if ($district->getRouteKeyName() == $selectedDistrictId) selected @endif>{{ $district->name }}
+                                    <option value="{{ $district->slug }}" @if ($district->slug == $selectedDistrictId) selected @endif>{{ $district->name }}
                                     </option>
                                 @endforeach
                             </select>
