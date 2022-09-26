@@ -65,4 +65,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Applying::class);
     }
+
+    public function getAccountStatusAttribute()
+    {
+        if ($this->verify_account == 1) {
+            return "verified";
+        }
+        return "hold";
+    }
 }
