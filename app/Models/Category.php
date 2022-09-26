@@ -12,7 +12,6 @@ class Category extends Model
     use HasFactory;
     use HasSlug;
 
-
     protected $guarded = [];
 
     public function getSlugOptions(): SlugOptions

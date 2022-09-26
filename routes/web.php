@@ -4,6 +4,7 @@ use App\Http\Controllers\Account\AdditionalDetailController;
 use App\Http\Controllers\Account\VerifyController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UserDeleteController;
 use App\Http\Controllers\Admin\UserRegistrationRequestController;
 use App\Http\Controllers\CvController;
@@ -55,7 +56,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('user-delte/{user}', UserDeleteController::class)
         ->name('user.delete');
 
-    Route::resource('category', CategoryController::class);
+    Route::resources([
+        'category' => CategoryController::class,
+        'sub-category' => SubCategoryController::class
+    ]);
 });
 
 Route::middleware(['auth', 'role:employer', 'additional_detail', 'account_verified'])->prefix('employer')->group(function () {

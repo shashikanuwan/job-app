@@ -21,11 +21,6 @@ class SubCategory extends Model
             ->saveSlugsTo('slug');
     }
 
-    public function getRouteKeyName()
-    {
-        return $this->slug;
-    }
-
     public function category()
     {
         return $this->belongsTo(Category::class);

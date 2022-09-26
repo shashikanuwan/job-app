@@ -13,7 +13,7 @@
                                 {{ __('Category') }}
                             </x-nav-link>
 
-                            <x-nav-link :href="route('jobs.create')" :active="request()->routeIs('jobs.create')">
+                            <x-nav-link :href="route('sub-category.index')" :active="request()->routeIs('sub-category.*')">
                                 {{ __('Sub Category') }}
                             </x-nav-link>
                         </div>
