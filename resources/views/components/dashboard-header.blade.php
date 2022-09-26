@@ -8,6 +8,8 @@
             <p class="mt-1 text-xs font-medium text-gray-600">{{Auth::user()->user_name}}</p>
         </div>
     </div>
+
+    @unlessrole('admin')
     <div class="mt-4 sm:pr-8">
         <p class="text-sm text-gray-500">
             Thank you for using our website
@@ -19,4 +21,6 @@
             <dd class="text-xs text-gray-500">{{Auth::user()->created_at->format('M d, Y - h:i a')}}</dd>
         </div>
     </dl>
+    @endunlessrole
+
 </div>

@@ -3,6 +3,9 @@
 use App\Http\Controllers\Account\AdditionalDetailController;
 use App\Http\Controllers\Account\VerifyController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\UserDeleteController;
+use App\Http\Controllers\Admin\UserRegistrationRequestController;
 use App\Http\Controllers\CvController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Employee\EmployeeDashboardController;
@@ -42,9 +45,17 @@ Route::middleware(['auth'])->group(function () {
         ->name('employee.detail.store');
 });
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('admin/dashboard', AdminDashboardController::class)
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
+    Route::get('dashboard', AdminDashboardController::class)
         ->name('admin.dashboard');
+
+    Route::post('user-registration-request-action/{user}', UserRegistrationRequestController::class)
+        ->name('user-registration-request.action');
+
+    Route::get('user-delte/{user}', UserDeleteController::class)
+        ->name('user.delete');
+
+    Route::resource('category', CategoryController::class);
 });
 
 Route::middleware(['auth', 'role:employer', 'additional_detail', 'account_verified'])->prefix('employer')->group(function () {
