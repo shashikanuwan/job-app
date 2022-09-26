@@ -15,7 +15,7 @@ class UserRegistrationActionRequest extends FormRequest
     public function rules()
     {
         return [
-            'verify_account' => 'required|in:0,1'
+            'verify_account' => 'required|in:1'
         ];
     }
 }

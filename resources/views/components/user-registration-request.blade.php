@@ -79,7 +79,7 @@
                                     <select name="verify_account">
                                         <option selected disabled>Select</option>
                                         <option value="1">verify</option>
-                                        <option value="0">Hold</option>
+                                        {{-- <option value="0">Hold</option> --}}
                                     </select>
 
                                     <button type="submit" class="text-center text-indigo-400 font-bold rounded p-2 focus:outline-none bg-opacity-40 border-2 border-indigo-400">
