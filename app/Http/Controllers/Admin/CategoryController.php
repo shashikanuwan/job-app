@@ -3,35 +3,53 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\CategoryRequest;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
     public function index()
     {
+        return view('Admin.Category.index');
     }
 
     public function create()
     {
+        return view('Admin.Category.create');
     }
 
-    public function store(Request $request)
+    public function store(CategoryRequest $request, Category $category)
     {
+        $category->create($request->validated());
+
+        return redirect()
+            ->route('category.index')
+            ->with('success', 'Category created successfully');
     }
 
-    public function show($id)
+    public function edit(Category $category)
     {
+        return view('Admin.Category.edit')
+            ->with([
+                'category' => $category
+            ]);
     }
 
-    public function edit($id)
+    public function update(CategoryRequest $request, Category $category)
     {
+        $category->update($request->validated());
+
+        return redirect()
+            ->route('category.index')
+            ->with('success', 'Category updated successfully');
     }
 
-    public function update(Request $request, $id)
+    public function destroy(Category $category)
     {
-    }
+        $category->delete();
 
-    public function destroy($id)
-    {
+        return redirect()
+            ->route('category.index')
+            ->with('success', 'Category deleted successfully');
     }
 }
